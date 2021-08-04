@@ -22,6 +22,7 @@ const char* g_cTitle = "Chapter 1: Setting up SDL";
 
 /* Used to continue or end our loop */
 bool g_bRunning = false;
+int g_iCounter = 0;
 
 SDL_Window* g_pWindow = NULL;
 SDL_Renderer* g_pRenderer = NULL;
@@ -89,11 +90,19 @@ int main(int argc, char* args[])
 
     while (g_bRunning)
     {
-        render();
-    }
+        g_iCounter++;
 
-    /* Set a delay before quiting in milliseconds - 1000 = 1 second */
-    // SDL_Delay(5000); // Maybe not need right now
+        if (g_iCounter <= 9)
+        {
+            render();
+            /* Set a delay before next loop in milliseconds - 1000 = 1 second */
+            SDL_Delay(5000); // 5 seconds
+        }
+        else
+        {
+            g_bRunning = false;
+        }
+    }
 
     /* Clean up SDL before we quit */
     SDL_Quit();
