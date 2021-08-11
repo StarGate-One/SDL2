@@ -18,7 +18,7 @@
 /* Screen Width and Height */
 const int g_iWidth = 1920;
 const int g_iHeight = 1080;
-const char* g_cTitle = "Chapter 1: Setting up SDL";
+const char* g_cTitle = "Chapter 1: Breaking Up the Code";
 
 /* Used to continue or end our loop */
 bool g_bRunning = false;
