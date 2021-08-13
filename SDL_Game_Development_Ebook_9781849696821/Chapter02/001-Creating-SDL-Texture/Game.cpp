@@ -5,11 +5,11 @@
   IBSN 9781849696821
   Copyright © 2013 Packt Publishing
 
-  Chapter 1: Getting Started with SDL
-  Lesson: The Game Class
+  Chapter 2: Drawing in SDL
+  Lesson: Creating an SDL Texture
 
-  Date 2021-08-10
-  Begin Program 003-The-Game-Class
+  Date 2021-08-12
+  Begin Program 001-Creating-SDL-Texture
   File Game.cpp
 */
 #include <iostream>
@@ -73,6 +73,19 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, bo
     std::cout << "Initialization Successful\n" << std::endl;
     m_bRunning = true;
 
+    SDL_Surface* pTempSurface = SDL_LoadBMP("assets/rider.bmp");
+    m_pTexture = SDL_CreateTextureFromSurface(m_pRenderer, pTempSurface);
+    SDL_FreeSurface(pTempSurface);
+    SDL_QueryTexture(m_pTexture, NULL, NULL, &m_sourceRectangle.w, &m_sourceRectangle.h);
+
+    // m_destinationRectangle.x = m_sourceRectangle.x = 0;
+    // m_destinationRectangle.y = m_sourceRectangle.y = 0;
+    m_destinationRectangle.x = 100;
+    m_destinationRectangle.y = 100;
+
+    m_destinationRectangle.w = m_sourceRectangle.w;
+    m_destinationRectangle.h = m_sourceRectangle.h;
+
     return true;
 }
 
@@ -80,6 +93,8 @@ void Game::render()
 {
     /* Clear the renderer to our preferred draw color */
     SDL_RenderClear(m_pRenderer);
+    SDL_RenderCopy(m_pRenderer, m_pTexture, &m_sourceRectangle, &m_destinationRectangle);
+    // SDL_RenderCopy(m_pRenderer, m_pTexture, NULL, NULL);
 
     /* Draw the screen */
     SDL_RenderPresent(m_pRenderer);
@@ -121,4 +136,4 @@ void Game::handleEvents()
         }
     }
 }
-/* End of 003-The-Game-Class */
+/* End of 001-Creating-SDL-Texture */
