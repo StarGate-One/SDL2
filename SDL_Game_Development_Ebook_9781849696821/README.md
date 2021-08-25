@@ -2,9 +2,9 @@
 
 - [vcpkg](https://github.com/microsoft/vcpkg.git) is used to create the SDL2 binaries:
 
-###SDL2 2.16 is used compiled x64-windows dynamic in VS 2019.
+### SDL2 2.16 is used compiled x64-windows dynamic in VS 2019.
 
-###The follow ports/features are installed:
+### The follow ports/features are installed:
 
 * Base SDL2
 	- sdl2-image:x64-windows                             2.0.5#1          SDL_image is an image file loading library. It l...
@@ -26,7 +26,7 @@
 	- tiff[zip]:x64-windows                                               Support ZIP/deflate compression in TIFF image files
 	- zlib:x64-windows                                   1.2.11#11        A compression library
 	
-###My solutions from the book:
+### My solutions from the book:
   - SDL Game Development Ebook
   - Discover how to leverage the power of SDL 2.0 to create awesome games in C
   - by Shaun Ross Mitchell
