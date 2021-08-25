@@ -6,16 +6,17 @@
   Copyright © 2013 Packt Publishing
 
   Chapter 2: Drawing in SDL
-  Lesson: Using SDL Image
+  Lesson: Creating The Texture Manager
 
-  Date 2021-08-24
-  Begin Program 003-Using-SDL-Image
+  Date 2021-08-25
+  Begin Program 004-Creating-The-Texture-Manager
   File Game.h
 */
 #ifndef __Game_H__
 #define __Game_H__
 
 #include <SDL2/SDL.h>
+#include "TextureManager.h"
 
 class Game
 {
@@ -45,7 +46,10 @@ private:
     SDL_Rect m_destinationRectangle = { 0, 0, 0, 0 };
 
     bool m_bRunning = false;
+
+    int m_currentFrame = 0;
+    TextureManager m_textureManager;
 };
 
 #endif /* defined(__Game_H__) */
-/* End of 003-Using-SDL-Image */
+/* End of 004-Creating-The-Texture-Manager */

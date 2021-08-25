@@ -6,14 +6,13 @@
   Copyright © 2013 Packt Publishing
 
   Chapter 2: Drawing in SDL
-  Lesson: Using SDL Image
+  Lesson: Creating The Texture Manager
 
-  Date 2021-08-24
-  Begin Program 003-Using-SDL-Image
+  Date 2021-08-25
+  Begin Program 004-Creating-The-Texture-Manager
   File Game.cpp
 */
 #include <iostream>
-#include <SDL2/SDL_image.h>
 #include "Game.h"
 
 /* Create our Initialize Function */
@@ -82,7 +81,7 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, bo
     /* Note the animate.jpg graphic file did not exist so I opened
        in MS Paint and selected jpg and save as animate.jpg */
     // SDL_Surface* pTempSurface = IMG_Load("assets/animate.jpg");
-    SDL_Surface* pTempSurface = IMG_Load("assets/animate-alpha.png");
+    /* SDL_Surface* pTempSurface = IMG_Load("assets/animate-alpha.png");
     m_pTexture = SDL_CreateTextureFromSurface(m_pRenderer, pTempSurface);
     SDL_FreeSurface(pTempSurface);
     SDL_QueryTexture(m_pTexture, NULL, NULL, &m_sourceRectangle.w, &m_sourceRectangle.h);
@@ -94,6 +93,9 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, bo
     m_destinationRectangle.y = 0;
     m_destinationRectangle.w = m_sourceRectangle.w;
     m_destinationRectangle.h = m_sourceRectangle.h;
+    */
+
+    m_textureManager.load("assets/animate-alpha.png", "animate", m_pRenderer);
 
     return true;
 }
@@ -103,7 +105,9 @@ void Game::render()
     /* Clear the renderer to our preferred draw color */
     SDL_RenderClear(m_pRenderer);
 
-    SDL_RenderCopy(m_pRenderer, m_pTexture, &m_sourceRectangle, &m_destinationRectangle);
+    /* SDL_RenderCopy(m_pRenderer, m_pTexture, &m_sourceRectangle, &m_destinationRectangle); */
+    m_textureManager.draw("animate", 0, 0, 128, 82, m_pRenderer);
+    m_textureManager.drawFrame("animate", 100, 100, 128, 82, 1, m_currentFrame, m_pRenderer);
 
     /* Draw the screen */
     SDL_RenderPresent(m_pRenderer);
@@ -148,6 +152,7 @@ void Game::handleEvents()
 
 void Game::update()
 {
-    m_sourceRectangle.x = 128 * int(((SDL_GetTicks() / 100) % 6));
+    //m_sourceRectangle.x = 128 * int(((SDL_GetTicks() / 100) % 6));
+    m_currentFrame = int(((SDL_GetTicks() / 100) % 6));
 }
-/* End of 003-Using-SDL-Image */
+/* End of 004-Creating-The-Texture-Manager */

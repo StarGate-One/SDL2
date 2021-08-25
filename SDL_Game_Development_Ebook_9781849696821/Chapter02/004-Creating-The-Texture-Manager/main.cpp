@@ -6,10 +6,10 @@
   Copyright © 2013 Packt Publishing
 
   Chapter 2: Drawing in SDL
-  Lesson: Using SDL Image
+  Lesson: Creating The Texture Manager
 
-  Date 2021-08-24
-  Begin Program 003-Using-SDL-Image
+  Date 2021-08-25
+  Begin Program 004-Creating-The-Texture-Manager
   File main.cpp
 */
 
@@ -18,7 +18,7 @@
 /* Screen Width and Height */
 const int m_pWidth = 1920;
 const int m_pHeight = 1080;
-const char* m_cTitle = "Chapter 2: Using SDL Image";
+const char* m_cTitle = "Chapter 2: Creating The Texture Manager";
 
 /* The Game Object */
 Game* g_game = 0;
@@ -40,4 +40,4 @@ int main(int argc, char* args[])
 
     return 0;
 }
-/* End of 003-Using-SDL-Image */
+/* End of 004-Creating-The-Texture-Manager */
