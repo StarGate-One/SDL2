@@ -13,10 +13,15 @@
 */
 
 #include <iostream>
+#include <string>
 #include <SDL2/SDL.h>
 
-const int g_iWidth = 1920;
-const int g_iHeight = 1080;
+#include "../../defines.hpp"
+
+const int g_iWidth = WINDOW_WIDTH;
+const int g_iHeight = WINDOW_HEIGHT;
+std::string g_cSubTitle = "Chapter 1: Setting up SDL";
+std::string g_cTitle = g_cSubTitle + WINDOW_TITLE;
 
 SDL_Window* g_pWindow = NULL;
 SDL_Renderer* g_pRenderer = NULL;
@@ -27,7 +32,7 @@ int main(int argc, char* args[])
     if (SDL_Init(SDL_INIT_EVERYTHING) >= 0)
     {
         /* SDL initalized */
-        g_pWindow = SDL_CreateWindow("Chapter 1: Setting up SDL",
+        g_pWindow = SDL_CreateWindow(g_cTitle.c_str(),
             SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
             g_iWidth, g_iHeight, SDL_WINDOW_SHOWN);
 

@@ -12,13 +12,15 @@
   Begin Program 001-Creating-SDL-Texture
   File main.cpp
 */
-
+#include <string>
 #include "Game.h"
+#include "../../defines.hpp"
 
 /* Screen Width and Height */
-const int m_pWidth = 1920;
-const int m_pHeight = 1080;
-const char* m_cTitle = "Chapter 2: Creating an SDL Texture";
+const int m_pWidth = WINDOW_WIDTH;
+const int m_pHeight = WINDOW_HEIGHT;
+std::string m_cSubTitle = "Chapter 2: Creating an SDL Texture";
+std::string m_cTitle = m_cSubTitle + WINDOW_TITLE;
 
 /* The Game Object */
 Game* g_game = 0;
@@ -27,7 +29,7 @@ int main(int argc, char* args[])
 {
     g_game = new Game();
 
-    g_game->init(m_cTitle, 100, 100, m_pWidth, m_pHeight, false);
+    g_game->init(m_cTitle.c_str(), 100, 100, m_pWidth, m_pHeight, false);
 
     while (g_game->running())
     {

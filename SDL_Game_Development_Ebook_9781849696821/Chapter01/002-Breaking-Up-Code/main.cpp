@@ -13,12 +13,17 @@
 */
 
 #include <iostream>
+#include <string>
 #include <SDL2/SDL.h>
 
+#include "../../defines.hpp"
+
 /* Screen Width and Height */
-const int g_iWidth = 1920;
-const int g_iHeight = 1080;
-const char* g_cTitle = "Chapter 1: Breaking Up the Code";
+const int g_iWidth = WINDOW_WIDTH;
+const int g_iHeight = WINDOW_HEIGHT;
+//const char* g_cTitle = "Chapter 1: Breaking Up the Code";
+std::string g_cSubTitle = "Chapter 1: Breaking Up the Code";
+std::string g_cTitle = g_cSubTitle + WINDOW_TITLE;
 
 /* Used to continue or end our loop */
 bool g_bRunning = false;
@@ -74,7 +79,7 @@ void render()
 
 int main(int argc, char* args[])
 {
-    if (init(g_cTitle,
+    if (init(g_cTitle.c_str(),
         SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
         g_iWidth, g_iHeight, SDL_WINDOW_SHOWN))
     {

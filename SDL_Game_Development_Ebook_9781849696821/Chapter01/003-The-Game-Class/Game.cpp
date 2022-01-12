@@ -13,6 +13,7 @@
   File Game.cpp
 */
 #include <iostream>
+#include <string>
 #include "Game.h"
 
 /* Create our Initialize Function */
